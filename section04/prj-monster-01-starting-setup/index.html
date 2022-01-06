@@ -19,15 +19,23 @@
     <div id="game">
       <section id="monster" class="container">
         <h2>Monster Health</h2>
+        <p>{{ monsterHealth }}</p>
         <div class="healthbar">
           <div class="healthbar__value" :style="monsterBarStyle"></div>
         </div>
       </section>
       <section id="player" class="container">
         <h2>Your Health</h2>
+        <p>{{ playerHealth }}</p>
         <div class="healthbar">
           <div class="healthbar__value" :style="playerBarStyle"></div>
         </div>
+      </section>
+      <section class="container" v-if="winner">
+        <h2>Game Over!</h2>
+        <h3 v-if="winner === 'monster'">You lost!</h3>
+        <h3 v-else-if="winner === 'player'">You won!</h3>
+        <h3 v-else>It's a draw!</h3>
       </section>
       <section id="controls">
         <button @click="attackMonster">ATTACK</button>
