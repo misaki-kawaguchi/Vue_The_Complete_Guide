@@ -6,7 +6,7 @@
     </div>
     <div class="form-control">
       <label for="age">Your Age (Years)</label>
-      <input id="age" name="age" type="number" v-model="userAge" />
+      <input id="age" name="age" type="number" v-model="userAge" ref="ageInput" />
     </div>
     <div class="form-control">
       <label for="referrer">How did you hear about us?</label>
@@ -66,7 +66,10 @@ export default {
       console.log('Username：' + this.userName);
       this.userName = "";
       console.log('User age:');
-      console.log(this.userAge);
+       // タイプ番号（30 + 5 = 35）
+      console.log(this.userAge + 5);
+      // 文字型（30 + 5 = 305）
+      console.log(this.$refs.ageInput.value + 5);
       this.userAge = null;
     }
   }
